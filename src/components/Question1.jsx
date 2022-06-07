@@ -96,12 +96,7 @@ const Question1 = () => {
             <div className='question-content question-content-3'>
                 <p className='question-answer-3-title'>USA ผลิตรถทั้งหมด {numAndIdbyUSA.number} ยี่ห้อ มีดังนี้</p>
                 <div  className='question-answer-3-content-box'>
-                {typeof(numAndIdbyUSA.id) !== "undefined" && 
-                numAndIdbyUSA.id.map((brand) => {
-                    return (
-                        <span className='question-answer-3-content'>{brand}, </span>
-                    )
-                })}
+                    <p className='question-answer-3-content'>{numAndIdbyUSA.id.join(', ')}</p>
                 </div>
                 
             </div>
@@ -114,12 +109,7 @@ const Question1 = () => {
             <div className='question-content question-content-4'>
                 <p className='question-answer-4-title'>EU ผลิตรถทั้งหมด {numAndIdbyEU.number} ยี่ห้อ มีดังนี้</p>
                 <div  className='question-answer-4-content-box'>
-                {typeof(numAndIdbyEU.id) !== "undefined" && 
-                numAndIdbyEU.id.map((brand) => {
-                    return (
-                        <span className='question-answer-4-content'>{brand}, </span>
-                    )
-                })}
+                    <p className='question-answer-4-content'>{numAndIdbyEU.id.join(', ')}</p>
                 </div>
             </div>
         </div>
