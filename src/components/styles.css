@@ -23,15 +23,16 @@ p {
 
 .question-section {
     padding: 2rem;
-    background-image: linear-gradient(to right bottom, #020024, #090979, #00d4ff);
+    background-image: linear-gradient(to right bottom, #3333c9, #00d4ff);
 }
 
 .question {
     padding: 4rem 8rem;
     background-color: lightblue;
     margin: 3rem 4rem;
-    box-shadow: 0px 2px 5px rgba(color black, alpha .2);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) ;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
 .question-title {
@@ -69,7 +70,7 @@ p {
 
 
 .css-section {
-    box-shadow: 0 1px 10rem black ;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4) ;
     display: grid;
     grid-template-columns: repeat(9, 11.11%);
     grid-template-rows: repeat(6, 10rem);
@@ -304,10 +305,10 @@ p {
 
 .router_link{
     text-decoration: none;
-    font-size: 5rem;
+    font-size: 4rem;
     color: black;
 }
 
 .router_link:hover {
-    color: #4098d8;
+    color: #77aed6;
 }
