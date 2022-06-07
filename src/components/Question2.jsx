@@ -1,5 +1,5 @@
 import React from 'react';
-import titleImageB from '../images/title-imageB.jpg';
+import titleImage from '../images/title-image.jpg';
 import { Link } from 'react-router-dom'
 
 
@@ -8,7 +8,7 @@ const Question2 = () => {
     <div>
     <div className='css-section'>
         <div className='image-section'>
-            <img className='title-image' src={titleImageB} alt="title-img" />
+            <img className='title-image' src={titleImage} alt="title-img" />
         </div>
         <div className='name-section'>
             <h1 className='titile-name header-1'>SAMUEL ANDERSON</h1> 

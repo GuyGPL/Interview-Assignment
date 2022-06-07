@@ -6,8 +6,8 @@ const Question1 = () => {
 
     const [idCarbyCountry, setIdCarbyCountry] = useState({});
     const [numCarByCountry, setNumCarByCountry] = useState([]);
-    const [numAndIdbyUSA, setNumAndIdbyUSA] = useState({});
-    const [numAndIdbyEU, setNumAndIdbyEU] = useState({});
+    const [numAndIdbyUSA, setNumAndIdbyUSA] = useState({number: null, id: []});
+    const [numAndIdbyEU, setNumAndIdbyEU] = useState({number: null, id:[]});
 
 
     useEffect(()=> {
@@ -95,9 +95,7 @@ const Question1 = () => {
             <div className='question-content question-content-3'>
                 <p className='question-answer-3-title'>USA ผลิตรถทั้งหมด {numAndIdbyUSA.number} ยี่ห้อ มีดังนี้</p>
                 <div  className='question-answer-3-content-box'>
-                {typeof(numAndIdbyUSA.id) !== "undefined" && 
                     <p>{numAndIdbyUSA.id.join(', ')}</p>
-                }
                 </div>
                 
             </div>
@@ -110,9 +108,7 @@ const Question1 = () => {
             <div className='question-content question-content-4'>
                 <p className='question-answer-4-title'>EU ผลิตรถทั้งหมด {numAndIdbyEU.number} ยี่ห้อ มีดังนี้</p>
                 <div  className='question-answer-4-content-box'>
-                {typeof(numAndIdbyEU.id) !== "undefined" && 
                     <p>{numAndIdbyEU.id.join(', ')}</p>
-               }                
                 </div>
             </div>
         </div>
