@@ -83,7 +83,7 @@ const Question1 = () => {
                 {Object.keys(idCarbyCountry).map((country) => {
                     return (
                         
-                        <p className='question-answer-2'><span className='question-answer-2-title'> {country} </span> : {idCarbyCountry[country].join(' ')}</p>
+                        <p className='question-answer-2'><span className='question-answer-2-title'> {country} </span> : {idCarbyCountry[country].join(', ')}</p>
                     )
                 })}
             </div>
@@ -112,7 +112,7 @@ const Question1 = () => {
                 Q.4 รถยุโรป มีกี่ยี่ห้อ ยี่ห้ออะไรบ้าง
             </h1>
             <div className='question-content question-content-4'>
-                <p className='question-answer-4-title'>EU ผลิตรถทั้งหมด{numAndIdbyEU.number} ยี่ห้อ มีดังนี้</p>
+                <p className='question-answer-4-title'>EU ผลิตรถทั้งหมด {numAndIdbyEU.number} ยี่ห้อ มีดังนี้</p>
                 <div  className='question-answer-4-content-box'>
                 {typeof(numAndIdbyEU.id) !== "undefined" && 
                 numAndIdbyEU.id.map((brand) => {
