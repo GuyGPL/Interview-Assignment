@@ -14,46 +14,45 @@ const Question1 = () => {
         const getData = async() => {
             const res = await fetch('https://gist.githubusercontent.com/ak1103dev/2c6c1be69300fa0717c62b9557e40e75/raw/0dc78ed8783f4c54345ee3eeac410d26805d2dbc/data.txt');
             const textData = await res.text()
-            const actualData = await textData.slice(0, textData.length-2).slice(2)
+            const actualData = textData.slice(0, textData.length-2).slice(2)
             const jsonData = await JSON.parse(actualData)
             
             const countryInEU = ['Italy', 'Germany', 'France', 'Romania', 'Netherlands', 'Spain', 'Sweden', 'Czech Republic', 'Austria', 'Denmark']
-            let idResults = {}; //object  {ประเทศ : [รถที่ผลิต]}
-            let carByCountry = []; //array [{ประเทศ: จำนวนรถที่ผลิต},...]
+            let idResults = {}; 
+            let carByCountry = []; 
             let carByUSA = {number: null, id: []}; 
             let carByEU = {number: null, id: []};
 
-            for (const res of jsonData.Makes) { // loop object
-                if (res.make_country in idResults) { // เช็คว่ามีรถใน object หรือยัง มีแล้ว
-                    if (!(res.make_id in idResults[res.make_country])){ // ถ้ารถยังไม่มีเพิ่มเข้าไป
+            for (const res of jsonData.Makes) { 
+                if (res.make_country in idResults) { 
+                    if (!(res.make_id in idResults[res.make_country])){ 
                         idResults[res.make_country].push(res.make_id)
                     }
                 } 
-                 else { //ประเทศยังไม่มีอยู่ใน object เลยเพิ่มทั้งประเทศและรถเข้าไป
+                 else { 
                     idResults[res.make_country] = [res.make_id] 
                 }
             }
-            await setIdCarbyCountry(idResults);
+            setIdCarbyCountry(idResults);
 
-            for (const country of Object.keys(idResults)) { // แต่ละประเทศผลิตกี่ยี่ห้อ
-                carByCountry.push({[country] : Object.keys(idResults[country]).length}) //ดูจำนวนที่ผลิตจากความยาวของ value
+            for (const country of Object.keys(idResults)) { 
+                carByCountry.push({[country] : Object.keys(idResults[country]).length}) 
             }
-            await setNumCarByCountry(carByCountry);
+            setNumCarByCountry(carByCountry);
 
             carByUSA['number'] = Object.keys(idResults['USA']).length;
             carByUSA['id'] = idResults['USA'] ;
-            await setNumAndIdbyUSA(carByUSA);
+            setNumAndIdbyUSA(carByUSA);
+            
+            for (const country of Object.keys(idResults)) {
+                if (countryInEU.includes(country)) {
+                    carByEU.id.push(...idResults[country])
+                }
+            }
 
-           for (const country of Object.keys(idResults)) {
-               for (const EUcountry of countryInEU){
-                   if (country === EUcountry) {
-                        carByEU.id.push(...idResults[country])
-                   }
-               }  
-           }
-           carByEU.id = carByEU.id.filter((value, index, array) => array.indexOf(value) === index); // check unique
+           carByEU.id = carByEU.id.filter((value, index, array) => array.indexOf(value) === index)
            carByEU.number = carByEU.id.length;
-           await setNumAndIdbyEU(carByEU) 
+           setNumAndIdbyEU(carByEU) 
        }
 
        getData()
@@ -129,3 +128,4 @@ const Question1 = () => {
 
 export default Question1
 
+ 
